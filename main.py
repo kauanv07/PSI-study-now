@@ -48,14 +48,12 @@ def dados():
 def sobre():
   return render_template('sobre.html')
 
-
-@app.route('/entrar', defaults={"id":"digite o valor 1 ou 2"})
+@app.route('/entrar', defaults={"id":"O parâmetro da rota não foi passado, por favor digite o valor cadastro ou login!"})
 @app.route('/entrar/<id>')
 def dado(id):
-  id = int(id)
-  if id == 1:
+  if id == 'cadastro':
     return render_template('cadastro.html', id=id)
-  elif id == 2:
+  elif id == 'login':
     return render_template('login.html', id=id)
   else:
     return render_template('entrar.html')
